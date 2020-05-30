@@ -1,0 +1,5 @@
+add_object A
+add_object a -below A
+add_object B
+add_object b -below B
+display_object
