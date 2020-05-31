@@ -1,2 +1,5 @@
-help
-
+if {[catch {help}]} { 
+	puts "Znaleziono bledy"  
+} else {
+	puts "Brak bledy"
+}

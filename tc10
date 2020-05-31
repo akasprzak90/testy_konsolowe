@@ -1,3 +1,8 @@
-add_object ef d
+if {[catch {add_object ef d}]} {
+	puts "Znaleziono bledy - niepoprawna skladnia"
+} else {
+	puts "Brak bledow"
+}
 display_object
+delete_object
 

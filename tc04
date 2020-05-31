@@ -1,5 +1,12 @@
-add_object A
-add_object a -below A
-add_object B
-add_object b -below B
+add_object abc
 display_object
+if {[file exists nowy]} {
+	puts "istnieje - kasuje"
+	catch [file delete nowy]
+}
+puts "Save file"
+catch "write_file nowy"
+puts "File content"
+puts [read [open nowy r]]
+delete_object
+

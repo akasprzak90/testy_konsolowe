@@ -1,3 +1,13 @@
-add_object .
-add_object a
+if {[catch {add_object abc}]} {
+	puts "Znaleziono blad"
+} else {
+	puts "Brak bledow"
+}
+if {[catch {add_object d -below abc}]} {
+	puts "Znaleziono blad"
+} else {
+	puts "Brak bledow"
+}
+display_object
+
 
