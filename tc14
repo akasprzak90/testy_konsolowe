@@ -1,3 +1,8 @@
-add_object 123
+if {[catch {add_object 123}]} {
+	puts "Znaleziono bledy - cyfry"
+} else {
+	puts "Brak bledow"
+}
 display_object
+delete_object
 
