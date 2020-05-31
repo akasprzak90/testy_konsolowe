@@ -1,0 +1,4 @@
+add_object $$$
+add_object %%% -below $$$
+display_object
+
