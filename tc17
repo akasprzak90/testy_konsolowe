@@ -1,0 +1,13 @@
+set x [list 'a!' 'a@' 'a#' 'a$' 'a%' 'a^' 'a&' 'a*' {a(} {a)} {a[} 'a_' 'a']
+foreach j $x {
+	puts "To jest element $j"
+
+if {[catch {add_object $j}]} {
+	puts "Znaleziono blad"
+} else {
+	puts "Brak bledu"
+}
+}
+display_object
+delete_object
+
