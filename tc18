@@ -1,0 +1,8 @@
+for {set i 0} {$i<} {incr i} {
+if {[catch {add_object Element$i}]}
+	puts "Blad podczad dodawania obiektu Element$i"
+} else {
+	puts "Dodano Element$i"
+}
+display_object
+delete_object

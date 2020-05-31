@@ -1,0 +1,121 @@
+if {[catch {help}]} { 
+	puts "Znaleziono bledy"  
+} else {
+	puts "Brak bledy"
+}
+add_object abc
+display_object
+if {[file exists nowy]} {
+	puts "istnieje - kasuje"
+	catch [file delete nowy]
+}
+puts "Save file"
+catch "write_file nowy"
+puts "File content"
+puts [read [open nowy r]]
+delete_object
+
+if {[catch {add_object abc}]} {
+	puts "Znaleziono bledy"
+} else {
+	puts "Brak bledow"
+}
+if {[catch {add_object abc}]} {
+	puts "Znaleziono bledy"
+} else {
+	puts "Brak bledow"
+}
+display_object
+delete_object
+if {[catch {add_object abc}]} {
+	puts "Znaleziono blad"
+} else {
+	puts "Brak bledow"
+}
+if {[catch {add_object d -below abc}]} {
+	puts "Znaleziono blad"
+} else {
+	puts "Brak bledow"
+}
+display_object
+
+
+if {[catch {add_object add_object}]} {
+	puts "Znaleziono bledy"
+} else {
+	puts "Brak bledow"
+}
+display_object
+delete_object
+
+
+if {[catch {add_object ef d}]} {
+	puts "Znaleziono bledy - niepoprawna skladnia"
+} else {
+	puts "Brak bledow"
+}
+display_object
+delete_object
+
+if {[catch {add_object .}]} {
+	puts "Znalezione bledy"
+} else {
+	puts "Brak bledow"
+}
+display_object
+delete_object
+
+if {[catch {add_object}]} {
+	puts "Znaleziono bledy"
+} else {
+	puts "Brak bledow"
+} 
+display_object
+delete_object
+
+
+if {[catch {add_object 123}]} {
+	puts "Znaleziono bledy - cyfry"
+} else {
+	puts "Brak bledow"
+}
+display_object
+delete_object
+
+if {[catch {add_object aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa}]} {
+	puts "Znaleziono bledy - zbyt dluga nazwa"
+} else {
+	puts "Brak bledow"
+}
+display_object
+delete_object
+
+if {[catch {add_object bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb}]} {
+	puts "Zaleziono bledy - zbyt dluga nazwa"
+} else {
+	puts "Brak bledow"
+}
+display_object
+delete_object
+
+set x [list 'a!' 'a@' 'a#' 'a$' 'a%' 'a^' 'a&' 'a*' {a(} {a)} {a[} 'a_' 'a']
+foreach j $x {
+	puts "To jest element $j"
+
+if {[catch {add_object $j}]} {
+	puts "Znaleziono blad"
+} else {
+	puts "Brak bledu"
+}
+}
+display_object
+delete_object
+
+for {set i 0} {$i<} {incr i} {
+if {[catch {add_object Element$i}]}
+	puts "Blad podczad dodawania obiektu Element$i"
+} else {
+	puts "Dodano Element$i"
+}
+display_object
+delete_object
